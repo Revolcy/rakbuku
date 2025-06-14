@@ -1,4 +1,4 @@
-import books from '../../models/model.js';
+import books from '../model/model.js';
 
 export const getBookById = (bookId) => {
   const book = books.find((book) => book.id === bookId);

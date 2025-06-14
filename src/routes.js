@@ -1,4 +1,4 @@
-import * as Controller from "./controllers/controller.js";
+import * as Controller from "./controller/controller.js";
 
 export default [
     {

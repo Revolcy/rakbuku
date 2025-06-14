@@ -1,3 +1,4 @@
+import books from '../model/model.js';
 export const deleteBookByIdService = (bookId) => {
   const bookIndex = books.findIndex((book) => book.id === bookId);
 

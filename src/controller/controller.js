@@ -1,5 +1,5 @@
 import { addBookService } from '../services/addBook.service.js';
-import { deleteBookByIdService } from '../services/deleteBook.service.js';
+import { deleteBookByIdService } from '../services/delBook.service.js';
 import { getAllBookService } from '../services/getAllBook.service.js';
 import { getBookById } from '../services/getById.service.js';
 import { updateBookByIdService } from '../services/updateBook.service.js';

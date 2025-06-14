@@ -1,6 +1,6 @@
 'use strict';
-
-const Hapi = require('@hapi/hapi');
+import routes from "./routes.js";
+import Hapi from "@hapi/hapi";
 
 const init = async () => {
 

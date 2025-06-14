@@ -1,4 +1,4 @@
-import books from '../../models/model.js';
+import books from '../model/model.js';
 
 export const getAllBookService = (query) => {
   let filteredBooks = books;
