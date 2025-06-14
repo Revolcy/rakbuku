@@ -7,22 +7,22 @@ import { updateBookByIdService } from '../services/updateBook.service.js';
 export const create = (request, h) => {
   const result = addBookService(request.payload);
 
-  if (result.error) {
+  if (result.status !== 'success') {
     return h
       .response({
-        status: 'fail',
+        status: result.status,
         message: result.message,
       })
-      .code(result.statusCode);
+      .code(result.code);
   }
 
   return h
     .response({
-      status: 'success',
-      message: 'Book successfully added',
+      status: result.status,
+      message: result.message,
       data: result.data,
     })
-    .code(201);
+    .code(result.code);
 };
 
 export const getAll = (request, h) => {
@@ -72,10 +72,10 @@ export const updateById = (request, h) => {
 
   return h
     .response({
-      status: 'success',
+      status: result.status,
       message: result.message,
     })
-    .code(200);
+    .code(result.statusCode);
 };
 
 export const removeById = (request, h) => {

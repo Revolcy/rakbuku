@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid';
 import books from '../model/model.js';
 
 export const addBookService = (payload) => {
@@ -14,22 +15,21 @@ export const addBookService = (payload) => {
 
   if (!name) {
     return {
-      error: true,
-      statusCode: 400,
+      status: 'fail',
       message: 'Gagal menambahkan buku. Mohon isi nama buku',
+      code: 400,
     };
   }
 
   if (readPage > pageCount) {
     return {
-      error: true,
-      statusCode: 400,
-      message:'Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount',
+      status: 'fail',
+      message: 'Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount',
+      code: 400,
     };
   }
 
-
-  const id = Date.now().toString(36) + Math.random().toString(36).substr(2, 6);
+  const id = nanoid(16);
   const insertedAt = new Date().toISOString();
   const updatedAt = insertedAt;
   const finished = pageCount === readPage;
@@ -52,11 +52,11 @@ export const addBookService = (payload) => {
   books.push(newBook);
 
   return {
-    error: false,
-    statusCode: 201,
+    status: 'success',
     message: 'Buku berhasil ditambahkan',
     data: {
       bookId: id,
     },
+    code: 201,
   };
 };

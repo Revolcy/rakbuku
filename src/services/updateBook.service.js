@@ -16,7 +16,7 @@ export const updateBookByIdService = (bookId, payload) => {
     return {
       error: true,
       statusCode: 400,
-        message: 'Gagal memperbarui buku. Mohon isi nama buku',
+      message: 'Gagal memperbarui buku. Mohon isi nama buku',
     };
   }
 
@@ -24,7 +24,7 @@ export const updateBookByIdService = (bookId, payload) => {
     return {
       error: true,
       statusCode: 400,
-        message: 'Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount',
+      message: 'Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount',
     };
   }
 
@@ -34,7 +34,7 @@ export const updateBookByIdService = (bookId, payload) => {
     return {
       error: true,
       statusCode: 404,
-        message: 'Gagal memperbarui buku. Id tidak ditemukan',
+      message: 'Gagal memperbarui buku. Id tidak ditemukan',
     };
   }
 
@@ -57,6 +57,8 @@ export const updateBookByIdService = (bookId, payload) => {
 
   return {
     error: false,
-      message: 'Buku berhasil diperbarui',
+    status: 'success',
+    message: 'Buku berhasil diperbarui',
+    statusCode: 200,
   };
 };
